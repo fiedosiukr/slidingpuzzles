@@ -1,5 +1,7 @@
 package com.baltsite.states;
 
+import java.awt.event.KeyEvent;
+
 import com.baltsite.graphics.Screen;
 
 public abstract class GameState {
@@ -12,4 +14,8 @@ public abstract class GameState {
 	
 	public abstract void update(double delta);
 	public abstract void render(Screen screen);
+
+	protected abstract void keyPressed(KeyEvent e);
+
+	protected abstract void keyReleased(KeyEvent e);
 }

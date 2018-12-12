@@ -6,8 +6,8 @@ import javax.swing.JFrame;
 
 public class SlidingPuzzle {
 	
-	public static final int WIDTH = 640;
-	public static final int SCALE = 2;
+	public static final int WIDTH = 1280;
+	public static final int SCALE = 1;
 	public static final int HEIGHT = WIDTH / 16 * 9;
 
 	public static void main(String[] args) {

@@ -2,6 +2,7 @@ package com.baltsite.main;
 
 import java.awt.Canvas;
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
@@ -23,6 +24,7 @@ public class Game extends Canvas implements Runnable {
 	
 	private GameStateManager gsm;
 	
+	
 	public Game() {
 		if (thread == null) {
 			thread = new Thread(this);
@@ -34,6 +36,8 @@ public class Game extends Canvas implements Runnable {
 		screen = new Screen(SlidingPuzzle.WIDTH, SlidingPuzzle.HEIGHT);
 		
 		gsm = new GameStateManager();
+		
+		addKeyListener(new KeyInput(this));
 	}
 	
 	
@@ -99,6 +103,7 @@ public class Game extends Canvas implements Runnable {
 		gsm.update(delta);
 	}
 	private void render() {	
+		screen.clear();
 		
 		gsm.render(screen);
 		
@@ -113,5 +118,16 @@ public class Game extends Canvas implements Runnable {
 		
 		bs.show();
 		g.dispose();
+	}
+
+
+	public void keyReleased(KeyEvent e) {
+		gsm.keyReleased(e);
+		
+	}
+
+
+	public void keyPressed(KeyEvent e) {
+		gsm.keyPressed(e);
 	}
 }

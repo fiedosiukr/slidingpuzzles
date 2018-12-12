@@ -1,19 +1,37 @@
 package com.baltsite.states;
 
-import com.baltsite.graphics.Font;
+import java.awt.event.KeyEvent;
+
 import com.baltsite.graphics.Screen;
+import com.baltsite.objects.Grid;
 
 public class MenuState extends GameState {
-
+	
+	private Grid grid;
+	
 	public MenuState(GameStateManager gsm) {
 		super(gsm);
+		grid = new Grid("res/test.png", 4);
+		
 	}
 
 	public void update(double delta) {
+		grid.update();
+		
+		
 	}
 
 	public void render(Screen screen) {
-		Font.renderMessage(screen, "RENDERING SIMPLE MESSAGE", 100, 100);
+		grid.render(screen);
+		
+	}
+
+	protected void keyPressed(KeyEvent e) {
+		grid.keyPressed(e);
+	}
+
+	protected void keyReleased(KeyEvent e) {
+		grid.keyReleased(e);
 	}
 
 }

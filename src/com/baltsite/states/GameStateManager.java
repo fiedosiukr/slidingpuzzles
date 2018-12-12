@@ -1,5 +1,6 @@
 package com.baltsite.states;
 
+import java.awt.event.KeyEvent;
 import java.util.LinkedList;
 
 import com.baltsite.graphics.Screen;
@@ -27,5 +28,14 @@ public class GameStateManager {
 	
 	public void setState(GameState gameState) {
 		gameStates.add(gameState);
+	}
+
+	public void keyReleased(KeyEvent e) {
+		gameStates.peek().keyReleased(e);
+	}
+
+	public void keyPressed(KeyEvent e) {
+		gameStates.peek().keyPressed(e);
+		
 	}
 }
